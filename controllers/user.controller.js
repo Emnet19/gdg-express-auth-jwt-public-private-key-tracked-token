@@ -24,3 +24,17 @@ export const getUser = async (req, res, next) => {
     next(err);
   }
 };
+
+
+// get all verified users
+export async function getUsers(req,res,next){
+  try{
+    const users=await User.find().select("-password");
+    return res.status(200).json({
+      success:true,
+      data:users
+    })
+  }catch(err){
+    next(err);
+    }
+}

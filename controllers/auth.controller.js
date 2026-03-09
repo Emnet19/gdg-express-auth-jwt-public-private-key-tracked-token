@@ -112,7 +112,7 @@ export const signIn = async (req, res, next) => {
       error.statusCode = 401;
       throw error;
     }
-
+    console.log("PRIVATE KEY:", ACCESS_TOKEN_PRIVATE_KEY);
     const access_token = jwt.sign(
       { user_id: user._id },
       ACCESS_TOKEN_PRIVATE_KEY,
